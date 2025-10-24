@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pantawid Links Directory</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: #222;
+      user-select: none;
+    }
+    /* Search bar */
+    #searchInput {
+      width: 100%;
+      max-width: 600px;
+      padding: 12px 20px;
+      border: 2px solid #007bff;
+      border-radius: 30px;
+      font-size: 18px;
+      outline: none;
+      margin-bottom: 30px;
+      transition: border-color 0.3s ease;
+    }
+    #searchInput:focus {
+      border-color: #0056b3;
+      box-shadow: 0 0 8px #0056b3aa;
+    }
+    /* Dashboard grid */
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      width: 100%;
+      max-width: 1000px;
+    }
+    /* Category card */
+    .category-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+      padding: 20px 25px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease;
+    }
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);
+    }
+    .category-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #007bff;
+      margin-bottom: 18px;
+      user-select: none;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 6px;
+    }
+    /* Links list */
+    .links-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .links-list li {
+      display: flex;
+      align-items: center;
+      background: #f9fbff;
+      border-radius: 10px;
+      padding: 10px 15px;
+      box-shadow: 0 2px 5px rgb(0 0 0 / 0.05);
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+    .links-list li:hover {
+      background-color: #e3f0ff;
+    }
+    .links-list img.icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 7px;
+      margin-right: 15px;
+      object-fit: contain;
+      user-select: none;
+    }
+    .links-list a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      flex-grow: 1;
+      user-select: none;
+    }
+    .links-list a:hover {
+      text-decoration: underline;
+    }
+    /* Hide filtered items */
+    .hidden {
+      display: none !important;
+    }
+    /* Responsive tweaks */
+    @media (max-width: 400px) {
+      #searchInput {
+        font-size: 16px;
+      }
+      .category-title {
+        font-size: 18px;
+      }
+      .links-list a {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pantawid Links Directory</h1>
+  <input type="text" id="searchInput" placeholder="Search links..." onkeyup="filterLinks()" />
+
+  <div class="dashboard">
+    <section class="category-card" data-category="Search Engines">
+      <h2 class="category-title">Google Drive Link</h2>
+      <ul class="links-list">
+        <li>
+          <img src="https://www.google.com/favicon.ico" alt="Google" class="icon" />
+          <a href="https://www.google.com" target="_blank" rel="noopener">Google</a>
+        </li>
+        <li>
+          <img src="https://search.yahoo.com/favicon.ico" alt="Yahoo" class="icon" />
+          <a href="https://search.yahoo.com" target="_blank" rel="noopener">Yahoo Search</a>
+        </li>
+      </ul>
+    </section> 
+      
+    <section class="category-card" data-category="Search Engines">
+      <h2 class="category-title">Panwatid Link Portal</h2>
+      <ul class="links-list">
+        <li>
+          <img src="https://www.google.com/favicon.ico" alt="Google" class="icon" />
+          <a href="https://www.google.com" target="_blank" rel="noopener">Google</a>
+        </li>
+        <li>
+          <img src="https://search.yahoo.com/favicon.ico" alt="Yahoo" class="icon" />
+          <a href="https://search.yahoo.com" target="_blank" rel="noopener">Yahoo Search</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="category-card" data-category="Social Media">
+      <h2 class="category-title">DTRIMS</h2>
+      <ul class="links-list">
+        <li>
+          <img src="https://www.facebook.com/favicon.ico" alt="Facebook" class="icon" />
+          <a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a>
+        </li>
+        <li>
+          <img src="https://twitter.com/favicon.ico" alt="Twitter" class="icon" />
+          <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="category-card" data-category="Tech & Development">
+      <h2 class="category-title">OTHER Links</h2>
+      <ul class="links-list">
+        <li>
+          <img src="https://github.com/favicon.ico" alt="GitHub" class="icon" />
+          <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+        </li>
+        <li>
+          <img src="https://stackoverflow.com/favicon.ico" alt="Stack Overflow" class="icon" />
+          <a href="https://stackoverflow.com" target="_blank" rel="noopener">Stack Overflow</a>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <script>
+    function filterLinks() {
+      const input = document.getElementById('searchInput');
+      const filter = input.value.toLowerCase();
+      const categories = document.querySelectorAll('.category-card');
+
+      categories.forEach(category => {
+        let categoryVisible = false;
+        const links = category.querySelectorAll('li');
+
+        links.forEach(link => {
+          const text = link.textContent.toLowerCase();
+          if (text.includes(filter)) {
+            link.classList.remove('hidden');
+            categoryVisible = true;
+          } else {
+            link.classList.add('hidden');
+          }
+        });
+
+        if (categoryVisible) {
+          category.style.display = '';
+        } else {
+          category.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
